@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -13,8 +12,7 @@ export const Skills = () => {
         { name: "Python", level: "Basic" },
         { name: "MySQL", level: "Very Good" },
         { name: "MongoDB", level: "Good" }
-      ],
-      gradient: "from-blue-800 to-blue-900"
+      ]
     },
     {
       title: "Technical Expertise",
@@ -25,8 +23,7 @@ export const Skills = () => {
         { name: "Rest API", level: "Excellent" },
         { name: "Web Development", level: "Excellent" },
         { name: "Bootstrap", level: "Very Good" }
-      ],
-      gradient: "from-slate-700 to-blue-800"
+      ]
     },
     {
       title: "Design & Creative",
@@ -35,8 +32,7 @@ export const Skills = () => {
         { name: "Adobe Illustrator", level: "Excellent" },
         { name: "Web Design", level: "Excellent" },
         { name: "Graphic Design", level: "Very Good" }
-      ],
-      gradient: "from-blue-900 to-slate-800"
+      ]
     },
     {
       title: "Industry Specialization",
@@ -47,8 +43,7 @@ export const Skills = () => {
         { name: "Payment Gateway", level: "Expert" },
         { name: "Telecommunications", level: "Excellent" },
         { name: "Fintech", level: "Expert" }
-      ],
-      gradient: "from-slate-800 to-blue-700"
+      ]
     }
   ];
 
@@ -56,47 +51,46 @@ export const Skills = () => {
     switch (level) {
       case "Excellent":
       case "Expert":
-        return "bg-gradient-to-r from-blue-800 to-blue-900 text-white border-0";
+        return "bg-blue-600 text-white border-blue-600";
       case "Very Good":
-        return "bg-gradient-to-r from-blue-600 to-blue-700 text-white border-0";
+        return "bg-blue-500 text-white border-blue-500";
       case "Good":
-        return "bg-gradient-to-r from-slate-600 to-blue-600 text-white border-0";
+        return "bg-slate-500 text-white border-slate-500";
       case "Basic":
-        return "bg-gradient-to-r from-slate-500 to-slate-600 text-white border-0";
+        return "bg-slate-400 text-white border-slate-400";
       default:
-        return "bg-secondary text-secondary-foreground";
+        return "bg-slate-200 text-slate-700 border-slate-300";
     }
   };
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-blue-50 via-slate-50 to-white">
+    <section id="skills" className="py-20 bg-slate-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">Skills & Expertise</h2>
-            <p className="text-xl text-muted-foreground">
-              15+ years of technical excellence across diverse domains
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-slate-900">Professional Skills</h2>
+            <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Comprehensive technical expertise developed through 15+ years of professional experience
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {skillCategories.map((category, index) => (
-              <Card key={index} className="hover-scale colorful-shadow border-0 overflow-hidden">
-                <div className={`h-3 bg-gradient-to-r ${category.gradient}`}></div>
-                <CardHeader className="bg-white">
-                  <CardTitle className="text-center text-xl bg-gradient-to-r ${category.gradient} bg-clip-text text-transparent">{category.title}</CardTitle>
+              <Card key={index} className="border border-slate-200 bg-white hover:shadow-lg transition-shadow duration-300">
+                <CardHeader className="border-b border-slate-100 pb-4">
+                  <CardTitle className="text-lg font-semibold text-slate-800">{category.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="bg-white">
-                  <div className="flex flex-wrap gap-3 justify-center">
+                <CardContent className="pt-5">
+                  <div className="space-y-3">
                     {category.skills.map((skill, skillIndex) => (
-                      <div key={skillIndex} className="flex flex-col items-center gap-1">
+                      <div key={skillIndex} className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-slate-700">{skill.name}</span>
                         <Badge 
-                          variant="outline" 
-                          className={`${getSkillColor(skill.level)} hover:scale-105 transition-all duration-200 text-center shadow-md`}
+                          className={`${getSkillColor(skill.level)} text-xs px-3 py-1 font-normal`}
                         >
-                          {skill.name}
+                          {skill.level}
                         </Badge>
-                        <span className="text-xs text-muted-foreground font-medium">{skill.level}</span>
                       </div>
                     ))}
                   </div>
@@ -105,23 +99,31 @@ export const Skills = () => {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <Card className="max-w-2xl mx-auto colorful-shadow border-0 overflow-hidden">
-              <div className="h-3 bg-gradient-to-r from-blue-700 to-slate-700"></div>
-              <CardHeader className="bg-white">
-                <CardTitle className="bg-gradient-to-r from-blue-700 to-slate-700 bg-clip-text text-transparent">Languages</CardTitle>
+          <div className="mt-8">
+            <Card className="max-w-3xl mx-auto border border-slate-200 bg-white">
+              <CardHeader className="border-b border-slate-100 pb-4">
+                <CardTitle className="text-lg font-semibold text-slate-800 text-center">Languages</CardTitle>
               </CardHeader>
-              <CardContent className="bg-white">
-                <div className="flex flex-wrap gap-4 justify-center">
-                  <Badge className="bg-gradient-to-r from-blue-800 to-blue-900 text-white border-0 shadow-md">
-                    English - Native
-                  </Badge>
-                  <Badge className="bg-gradient-to-r from-blue-800 to-blue-900 text-white border-0 shadow-md">
-                    Bangla - Native
-                  </Badge>
-                  <Badge className="bg-gradient-to-r from-slate-600 to-blue-600 text-white border-0 shadow-md">
-                    Hindi - Novice
-                  </Badge>
+              <CardContent className="pt-5">
+                <div className="flex flex-wrap gap-3 justify-center">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium text-slate-700">English</span>
+                    <Badge className="bg-blue-600 text-white border-0 text-xs px-3 py-1">
+                      Native
+                    </Badge>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium text-slate-700">Bangla</span>
+                    <Badge className="bg-blue-600 text-white border-0 text-xs px-3 py-1">
+                      Native
+                    </Badge>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium text-slate-700">Hindi</span>
+                    <Badge className="bg-slate-500 text-white border-0 text-xs px-3 py-1">
+                      Novice
+                    </Badge>
+                  </div>
                 </div>
               </CardContent>
             </Card>
